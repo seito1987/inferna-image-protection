@@ -1,0 +1,386 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+  background-color: #FF7F00;
+  font-family: "Press Start 2P", monospace;
+}
+
+h1 {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 1em;
+  text-transform: lowercase;
+  margin-bottom: 1.2em;
+  color:#000;
+}
+
+h2 {
+  text-align: left;
+  margin: 1.2em 0 0.8em 20px;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+.red {
+  background-color: #FF5721;
+}
+
+.pink {
+  background-color: #EC407A;
+}
+
+.orange {
+  background-color: #FF9800;
+}
+
+.yellow {
+  background-color: #FFEB3B;
+}
+
+.green1 {
+  background-color: #8BC349;
+}
+
+.green2 {
+  background-color: #4BAF50;
+}
+
+.blue1 {
+  background-color: #05A9F4;
+}
+
+.blue2 {
+  background-color: #3F51B5;
+}
+
+.purple1 {
+  background-color: #673AB7;
+}
+
+.purple2 {
+  background-color: #9B28B0;
+}
+
+.black {
+  background-color: #000;
+}
+
+.nude {
+  background-color: #ffe090;
+}
+
+.nude2 {
+  background-color: #ffc890;
+}
+
+.menu-container {
+  position:relative;
+  float: left;
+  width: 40%;
+}
+
+.menu {
+   margin: 0 auto;
+   margin-bottom: 1.2em;
+   min-width: 100px;
+   width: 70%;
+   min-height: 300px;
+   background-color: white;
+   border: 4px solid black;
+   box-shadow: 7px 7px 0 0;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+table,
+td {
+  margin:0;
+  padding:0;
+}
+
+td {
+  border: 1px solid #000;
+}
+
+td.pixel {
+  background-color: #fff;
+}
+
+td.pixel:hover {
+  box-shadow: 38px 38px rgba(0,0,0,0.1) inset;
+}
+
+.table-container {
+  float: right;
+  position: relative;
+  width:30%;
+  margin-right:100px;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: white;
+  border: none;
+  border-radius:100%;
+}
+
+tr {
+   height: 20px;
+}
+
+td {
+  width: 19px;
+}
+
+table.pixel-canvas-nogrid td {
+  border-color: transparent;
+}
+
+.color-selector {
+  margin-bottom: 20px;
+  clear: both;
+}
+
+#sizePicker {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding:0;
+
+}
+
+.color-input {
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+#colorPicker {
+  width: 5em;
+  display: inline-block;
+}
+
+
+#colorPickerSubmit {
+  width: 6em;
+  display: inline-block;
+}
+
+.color-icon {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+
+}
+
+
+input[type=submit] {
+  width: 100%;
+  height: 42px;
+  background-color: #F5EC9D;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.9em;
+  text-transform: lowercase;
+  margin-bottom: 10px;
+}
+
+input[type=submit]:hover {
+  background-color: #fcf5c1;
+}
+
+input[type=submit]:focus {
+  outline: none;
+}
+
+input[type=submit]:active {
+  background-color: #F5EC9D;
+  color: #000;
+  box-shadow: 1px 1px 0 1px #000 inset;
+}
+
+input[type=number] {
+  height: 30px;
+  border: 3px solid #000;
+  margin:0;
+  margin-bottom: 12px;
+  padding-left: 4px;
+  font-family: 'VT323', monospace;
+  font-size: 1.5em;
+}
+
+
+.grid-input {
+  clear: both;
+}
+
+.grid-input-col {
+  float: left;
+}
+
+.grid-input-col input {
+  width: 100%;
+}
+
+.grid-input-col-left, .grid-input-col-right {
+  width: 40%;
+}
+
+.grid-input-col-center {
+  text-align: center;
+  width: 20%;
+}
+
+.small-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1em;
+  line-height: 30px;
+}
+
+.tip-container {
+  margin: 0 auto;
+  min-width: 100px;
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.tip {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7em;
+  line-height: 1.6em;
+  width: 65%;
+  vertical-align: bottom;
+}
+
+.icon-eraser {
+  display: inline-block;
+  width: 42px;
+}
+
+.palette {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.palette-color {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  border: 3px solid black;
+  margin-bottom: 15px;
+}
+
+
+.palette-color-selected {
+  box-shadow: 0 0 0 2px white,
+              0 0 0 5px black;
+}
+
+.palette-color:hover {
+  box-shadow: 0 0 0 2px white,
+              0 0 0 5px black;
+}
+
+.grid-toggle {
+  margin-left:20px;
+  margin-bottom: 25px;
+}
+
+/*modified checkbox styling from https://www.w3schools.com/howto/howto_css_custom_checkbox.asp*/
+
+.label-container {
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  font-size: 0.9em;
+  margin-bottom: 12px;
+  cursor: pointer;
+  line-height: 34px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.label-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 3px solid black;
+}
+
+/* On mouse-over, add a yellow background color */
+.label-container:hover input ~ .checkmark {
+  background-color: #F5EC9D;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.label-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.label-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*Add some responsivness */
+@media screen and (max-width: 720px) {
+  .table-container, .menu-container {
+    float: none;
+    width: 100%;
+    margin-bottom: 2em;
+
+  }
+  .menu {
+    width: 90%;
+  }
+
+  .tip-container {
+    width: 90%;
+
+  }
+
+/* Navbar */
+
+#pix-nav {
+  height:100px;
+  width:30%;
+  background-color:#FFF;
+  color:#000;
+  float:left;
+}
