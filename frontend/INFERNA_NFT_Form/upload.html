@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.min.css">
-  <link rel="stylesheet" href="css/upload-nft.css">
   <link rel="stylesheet" href="css/vendor/simplebar.css">
   <link rel="icon" href="img/favicon.png">
   <link rel="stylesheet" type="text/css" href="css/vendor/style-swipe.css">
   <link rel="stylesheet" type="text/css" href="css/vendor/swiper-bundle.min.css">
   <link rel="stylesheet" type="text/css" href="css/vendor/slidervalue.css">
   <link rel="stylesheet" type="text/css" href="css/vendor/icons.css">
+  <link rel="stylesheet" href="css/upload-nft/upload-nft.css">
   <title>INFERNA | Rewards</title>
 </head>
 <body>
@@ -1774,7 +1774,7 @@
         </div>
     
         <!-- upload NFT content  -->
-        <div class="grid-column margin-top " >
+        <div class="grid-column margin-top ">
           <div class="widget-box">
             <div class="widget-box-content">
               <div class="grid grid-8-4">
@@ -1943,116 +1943,151 @@
 
                 <!-- image preview column -->
                 <div class="grid-column">
-                  <p class="widget-box-title">Preview</p>
-                  <div class="nft-image-preview">
-                    <div class="meta-line-list reaction-item-list">
-                      <!-- REACTION ITEM -->
-                      <div class="reaction-item" style="position: relative;">
-                        <!-- REACTION IMAGE -->
-                        <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/dislike.png" alt="reaction-dislike">
-                        <!-- /REACTION IMAGE -->
-
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown padded reaction-item-dropdown" style="position: absolute; z-index: 9999; bottom: 38px; left: -16px; opacity: 0; visibility: hidden; transform: translate(0px, 20px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/dislike.png" alt="reaction-dislike"> <span class="bold">Dislike</span></p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Matt Parker</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Destroy Dex</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">The Green Goo</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
+                  <form class="form upload-image-form" id="upload-image-form">
+                      <!-- upload button  -->
+                      <div class="form-row">
+                        <div class="form-item">
+                          <div class="form-input small active">
+                            <input id="upload-file-input" type="file" name="upload-file-input" style="display: none;" />
+                            <p class="widget-box-title label-title">Upload image</p>                         
+                            <p class="button primary upload-nft-button" id="upload-image-button">Upload image</p>
+                          </div>
                         </div>
-                        <!-- /SIMPLE DROPDOWN -->
                       </div>
-                      <!-- /REACTION ITEM -->
+                  </form>
 
-                      <!-- REACTION ITEM -->
-                      <div class="reaction-item" style="position: relative; margin-bottom: 10px;">
-                        <!-- REACTION IMAGE -->
-                        <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/love.png" alt="reaction-love">
-                        <!-- /REACTION IMAGE -->
-
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown padded reaction-item-dropdown" style="position: absolute; z-index: 9999; bottom: 38px; left: -16px; opacity: 0; visibility: hidden; transform: translate(0px, 20px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/love.png" alt="reaction-love"> <span class="bold">Love</span></p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Sandra Strange</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Jane Rodgers</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
+                  <div class="upload-result-box">
+                    <p class="widget-box-title">Upload Result (<span class="search-image-count">5</span>)</p>
+                    <div class="list-container">                  
+                      <div class="search-list-box">
+                        <ul>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                          <li>http:127.0.0.1/img/cover/10.jpg</li>
+                        </ul>
                       </div>
-                      <!-- /REACTION ITEM -->
-
-                      <!-- REACTION ITEM -->
-                      <div class="reaction-item" style="position: relative;">
-                        <!-- REACTION IMAGE -->
-                        <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/like.png" alt="reaction-like">
-                        <!-- /REACTION IMAGE -->
-
-                        <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown padded reaction-item-dropdown" style="position: absolute; z-index: 9999; bottom: 38px; left: -16px; opacity: 0; visibility: hidden; transform: translate(0px, 20px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/like.png" alt="reaction-like"> <span class="bold">Like</span></p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Neko Bebop</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Nick Grissom</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Sarah Diamond</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text">Jett Spiegel</p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-
-                          <!-- SIMPLE DROPDOWN TEXT -->
-                          <p class="simple-dropdown-text"><span class="bold">and 2 more...</span></p>
-                          <!-- /SIMPLE DROPDOWN TEXT -->
-                        </div>
-                        <!-- /SIMPLE DROPDOWN -->
-                      </div>
-                      <!-- /REACTION ITEM -->
                     </div>
-
-                    <img src="img/cover/10.jpg" style="width: 100%; margin-bottom: 20px;" alt="NFT-preview-10" >
-                    <div class="nft-image-desc">
-                      <p class="product-preview-title">Harry Potter's Halloween!</p>
-                      <p class="product-preview-category digital">0.25 <span class="coin-count">1 of 1</span> </p>
-                    </div>
-                  
                   </div>
+
+                  
+                  <div class="preview-box">
+                    <p class="widget-box-title">Preview</p>
+                    <div class="nft-image-preview">
+                      <div class="meta-line-list reaction-item-list">
+                        <!-- REACTION ITEM -->
+                        <div class="reaction-item" style="position: relative;">
+                          <!-- REACTION IMAGE -->
+                          <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/dislike.png" alt="reaction-dislike">
+                          <!-- /REACTION IMAGE -->
+  
+                          <!-- SIMPLE DROPDOWN -->
+                          <div class="simple-dropdown padded reaction-item-dropdown" style="position: absolute; z-index: 9999; bottom: 38px; left: -16px; opacity: 0; visibility: hidden; transform: translate(0px, 20px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/dislike.png" alt="reaction-dislike"> <span class="bold">Dislike</span></p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Matt Parker</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Destroy Dex</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">The Green Goo</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+                          </div>
+                          <!-- /SIMPLE DROPDOWN -->
+                        </div>
+                        <!-- /REACTION ITEM -->
+  
+                        <!-- REACTION ITEM -->
+                        <div class="reaction-item" style="position: relative; margin-bottom: 10px;">
+                          <!-- REACTION IMAGE -->
+                          <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/love.png" alt="reaction-love">
+                          <!-- /REACTION IMAGE -->
+  
+                          <!-- SIMPLE DROPDOWN -->
+                          <div class="simple-dropdown padded reaction-item-dropdown" style="position: absolute; z-index: 9999; bottom: 38px; left: -16px; opacity: 0; visibility: hidden; transform: translate(0px, 20px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/love.png" alt="reaction-love"> <span class="bold">Love</span></p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Sandra Strange</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Jane Rodgers</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+                          </div>
+                          <!-- /SIMPLE DROPDOWN -->
+                        </div>
+                        <!-- /REACTION ITEM -->
+  
+                        <!-- REACTION ITEM -->
+                        <div class="reaction-item" style="position: relative;">
+                          <!-- REACTION IMAGE -->
+                          <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/like.png" alt="reaction-like">
+                          <!-- /REACTION IMAGE -->
+  
+                          <!-- SIMPLE DROPDOWN -->
+                          <div class="simple-dropdown padded reaction-item-dropdown" style="position: absolute; z-index: 9999; bottom: 38px; left: -16px; opacity: 0; visibility: hidden; transform: translate(0px, 20px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/like.png" alt="reaction-like"> <span class="bold">Like</span></p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Neko Bebop</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Nick Grissom</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Sarah Diamond</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text">Jett Spiegel</p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+  
+                            <!-- SIMPLE DROPDOWN TEXT -->
+                            <p class="simple-dropdown-text"><span class="bold">and 2 more...</span></p>
+                            <!-- /SIMPLE DROPDOWN TEXT -->
+                          </div>
+                          <!-- /SIMPLE DROPDOWN -->
+                        </div>
+                        <!-- /REACTION ITEM -->
+                      </div>
+  
+                      <img src="img/cover/10.jpg" id="image-previewer" style="width: 100%; margin-bottom: 20px;" alt="NFT-preview-10" >
+                      <div class="nft-image-desc">
+                        <p class="product-preview-title">Harry Potter's Halloween!</p>
+                        <p class="product-preview-category digital">0.25 <span class="coin-count">1 of 1</span> </p>
+                      </div>
+                    
+                    </div>
+                  </div>                
                   
                 </div><!-- //- image preview column -->
             </div>
           </div>
         </div>
       </div> <!-- //- upload NFT content -->
-    </div>
+
     </div>
     
     
-  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/utils/app.js"></script>
 <script src="js/utils/page-loader.js"></script>
 <script src="js/vendor/simplebar.min.js"></script>
@@ -2072,64 +2107,7 @@
 <script src="js/vendor/levelup.js"></script>
 <script src="js/vendor/cas.js"></script>
 <script src="js/vendor/cas-2.js"></script>
-
-<script>
-  
-window.onload = function(e) {
-  let toggle_price = document.getElementById('toggle-price');
-  toggle_price.addEventListener('click', function(e) {
-    console.log('toggle_price clicked');
-    
-  });
-
-  let toggle_unlockable = document.getElementById('toggle-unlockable');
-  toggle_unlockable.addEventListener('click', function(e) {
-    console.log('toggle_unlockable clicked');
-
-    let bShow = toggle_unlockable.classList.contains('active');
-    let display = bShow == true ?  'block' : 'none';
-    document.getElementById('unlockable').style.display = display;
-  });
-
-  let toggle_utility = document.getElementById('toggle-utility');
-  toggle_utility.addEventListener('click', function(e) {
-    console.log('toggle_utility clicked');
-
-    let bShow = toggle_utility.classList.contains('active');
-    let display = bShow == true ? 'block' : 'none';
-    document.getElementById('utility').style.display = display;
-
-    display = bShow == true ? 'inline' : 'none';
-    document.getElementById('comingsoon').style.display = display
-  });
-
-
-  let input, hashtagArray, container, t;
-  input = document.querySelector('#hashtags');
-  container = document.querySelector('.tag-container');
-  hashtagArray = [];
-
-  input.addEventListener('keyup', () => {
-      if (event.which == 13 && input.value.length > 0) {
-        var text = document.createTextNode(input.value);
-        var p = document.createElement('p');
-        container.appendChild(p);
-        p.appendChild(text);
-        p.classList.add('tag');
-        input.value = '';
-        
-        let deleteTags = document.querySelectorAll('.tag');
-        
-        for(let i = 0; i < deleteTags.length; i++) {
-          deleteTags[i].addEventListener('click', () => {
-            container.removeChild(deleteTags[i]);
-          });
-        }
-      }
-  });
-
-}
-</script>
+<script src="js/upload-nft/upload-nft.js"></script>
 
 </body>
 </html>
