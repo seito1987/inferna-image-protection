@@ -1,0 +1,113 @@
+window.onload = function(e) {
+    let toggle_price = document.getElementById('toggle-price');
+    toggle_price.addEventListener('click', function(e) {
+      console.log('toggle_price clicked');
+      
+    });
+  
+    let toggle_unlockable = document.getElementById('toggle-unlockable');
+    toggle_unlockable.addEventListener('click', function(e) {
+      console.log('toggle_unlockable clicked');
+  
+      let bShow = toggle_unlockable.classList.contains('active');
+      let display = bShow == true ?  'block' : 'none';
+      document.getElementById('unlockable').style.display = display;
+    });
+  
+    let toggle_utility = document.getElementById('toggle-utility');
+    toggle_utility.addEventListener('click', function(e) {
+      console.log('toggle_utility clicked');
+  
+      let bShow = toggle_utility.classList.contains('active');
+      let display = bShow == true ? 'block' : 'none';
+      document.getElementById('utility').style.display = display;
+  
+      display = bShow == true ? 'inline' : 'none';
+      document.getElementById('comingsoon').style.display = display
+    });
+  
+  
+    let input, hashtagArray, container, t;
+    input = document.querySelector('#hashtags');
+    container = document.querySelector('.tag-container');
+    hashtagArray = [];
+  
+    input.addEventListener('keyup', () => {
+        if (event.which == 13 && input.value.length > 0) {
+          var text = document.createTextNode(input.value);
+          var p = document.createElement('p');
+          container.appendChild(p);
+          p.appendChild(text);
+          p.classList.add('tag');
+          input.value = '';
+          
+          let deleteTags = document.querySelectorAll('.tag');
+          for(let i = 0; i < deleteTags.length; i++) {
+            deleteTags[i].addEventListener('click', () => {
+              container.removeChild(deleteTags[i]);
+            });
+          }
+        }
+    });
+
+    const INFERNA_SERVER_URL = '127.0.0.1';
+    /**
+     * upload the image
+     * get the filestream on the local, opening the file-upload window
+     * call the server
+     *      api: /upload/image, 
+     *      method: post
+     *      param: filestream
+     *      return: list of reverse image search
+     */
+   
+
+    $('#upload-image-button').click( (e) => {
+        e.preventDefault()
+
+        // open the file input window
+        $('#upload-file-input').change( function(e){ 
+            let blob = $(this)[0].files[0];
+            console.log(blob);
+            uploadImage(blob)
+        })
+        .trigger('click')
+        
+        var uploadImage = function(blobFile) {                    
+            // post the stream to the sever via endpoint.
+            let formdata = new FormData();
+            formdata.append('fileToUpload', blobFile);
+            console.log(formdata);
+
+            // show the thumbnail and list of reverse image
+            $.ajax({
+                url: `${INFERNA_SERVER_URL}/uploadImage`,
+                type: "POST",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    let thumbnail_url = response.thumbnail;
+                    let reverse_list = response.reverselist 
+
+                    // show the thumbnail //
+                    $('#image-previewer')[0].src = thumbnail_url;
+
+                    // show the reverse list //
+                    let count = reverse_list.length ? reverse_list.length : 0;
+                    $('#search-image-count').text(count);
+                    $('.search-list-box ul').children().remove();
+                    reverse_list.map((each) => {
+                        const list = `<li><a href=${each.url}>${each.title}</a></li>`;
+                        $('.search-list-box ul').append(list);
+                    })
+                },
+                error: function(jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+        }            
+
+    })
+  
+  }
