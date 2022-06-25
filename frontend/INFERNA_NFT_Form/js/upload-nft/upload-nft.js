@@ -27,7 +27,7 @@ window.onload = function(e) {
     });
   
   
-    let input, hashtagArray, container, t;
+    let input, container;
     input = document.querySelector('#hashtags');
     container = document.querySelector('.tag-container');
     hashtagArray = [];
@@ -50,7 +50,21 @@ window.onload = function(e) {
         }
     });
 
-    const INFERNA_SERVER_URL = '127.0.0.1';
+    const INFERNA_SERVER_URL = 'http://localhost:3000';
+    var callRestAPI = function() {
+        $.ajax({
+            url: `${INFERNA_SERVER_URL}/api/v1/backend/fetchImage`,
+            type: "POST",
+            // data: {url: 'https://infernaco.com/demo/img/cover/10.jpg'},
+            data: {url: 'http://localhost:3000/sample/bill.jpg'},
+            dataType: 'json',
+            success: function(response) {
+               console.log(response);
+            }
+        });
+    }
+    callRestAPI();
+
     /**
      * upload the image
      * get the filestream on the local, opening the file-upload window
@@ -60,54 +74,67 @@ window.onload = function(e) {
      *      param: filestream
      *      return: list of reverse image search
      */
-   
-
     $('#upload-image-button').click( (e) => {
         e.preventDefault()
 
         // open the file input window
         $('#upload-file-input').change( function(e){ 
-            let blob = $(this)[0].files[0];
-            console.log(blob);
-            uploadImage(blob)
+            let file = $(this)[0].files[0]
+            let reader = new FileReader()
+            let blob = null
+            reader.readAsDataURL(file)
+            reader.onloadend = function() {
+                blob = reader.result
+                console.log(blob)
+                uploadImage(blob)
+            }
         })
         .trigger('click')
         
-        var uploadImage = function(blobFile) {                    
-            // post the stream to the sever via endpoint.
-            let formdata = new FormData();
-            formdata.append('fileToUpload', blobFile);
-            console.log(formdata);
+        var uploadImage = function(blobFile) {          
+          var canvas = document.getElementById('watermark-preview-canvas');
+          var img = new Image;
+          var ctx = canvas.getContext('2d');
+          img.onload = function () {
+            // canvas.width = img.width 
+            // canvas.height = img.height
+            // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            canvas.width = img.height 
+            canvas.height = img.height 
 
-            // show the thumbnail and list of reverse image
-            $.ajax({
-                url: `${INFERNA_SERVER_URL}/uploadImage`,
-                type: "POST",
-                data: formdata,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    let thumbnail_url = response.thumbnail;
-                    let reverse_list = response.reverselist 
+            // Draw image to the canvas
+            ctx.drawImage(img, 0, 0) 
+          }
+          img.src = blobFile;
+          return;
 
-                    // show the thumbnail //
-                    $('#image-previewer')[0].src = thumbnail_url;
+          $.ajax({
+              url: `${INFERNA_SERVER_URL}/uploadImage`,
+              type: "POST",
+              data: blobFile,
+              dataType: 'json',
+              success: function(response) {
+                  console.log(response);
+                  // let thumbnail_url = response.thumbnail;
+                  // let reverse_list = response.reverselist 
 
-                    // show the reverse list //
-                    let count = reverse_list.length ? reverse_list.length : 0;
-                    $('#search-image-count').text(count);
-                    $('.search-list-box ul').children().remove();
-                    reverse_list.map((each) => {
-                        const list = `<li><a href=${each.url}>${each.title}</a></li>`;
-                        $('.search-list-box ul').append(list);
-                    })
-                },
-                error: function(jqXHR, textStatus, errorMessage) {
-                    console.log(errorMessage);
-                }
-            });
-        }            
+                  // // show the thumbnail //
+                  // $('#image-previewer')[0].src = thumbnail_url;
 
+                  // // show the reverse list //
+                  // let count = reverse_list.length ? reverse_list.length : 0;
+                  // $('#search-image-count').text(count);
+                  // $('.search-list-box ul').children().remove();
+                  // reverse_list.map((each) => {
+                  //     const list = `<li><a href=${each.url}>${each.title}</a></li>`;
+                  //     $('.search-list-box ul').append(list);
+                  // })
+              },
+              error: function(jqXHR, textStatus, errorMessage) {
+                  // console.log(errorMessage);
+              }
+          });
+        }
     })
   
   }
