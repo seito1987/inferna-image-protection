@@ -51,19 +51,19 @@ window.onload = function(e) {
     });
 
     const INFERNA_SERVER_URL = 'http://localhost:3000';
-    var callRestAPI = function() {
-        $.ajax({
-            url: `${INFERNA_SERVER_URL}/api/v1/backend/fetchImage`,
-            type: "POST",
-            // data: {url: 'https://infernaco.com/demo/img/cover/10.jpg'},
-            data: {url: 'http://localhost:3000/sample/bill.jpg'},
-            dataType: 'json',
-            success: function(response) {
-               console.log(response);
-            }
-        });
-    }
-    callRestAPI();
+    // var callRestAPI = function() {
+    //     $.ajax({
+    //         url: `${INFERNA_SERVER_URL}/api/v1/backend/fetchImage`,
+    //         type: "POST",
+    //         data: {url: 'https://infernaco.com/demo/img/cover/10.jpg'},
+    //         // data: {url: 'http://localhost:3000/sample/bill.jpg'},
+    //         dataType: 'json',
+    //         success: function(response) {
+    //            console.log(response);
+    //         }
+    //     });
+    // }
+    // callRestAPI();
 
     /**
      * upload the image
@@ -81,40 +81,42 @@ window.onload = function(e) {
         $('#upload-file-input').change( function(e){ 
             let file = $(this)[0].files[0]
             let reader = new FileReader()
-            let blob = null
+            let blob = null, fileName = '';
             reader.readAsDataURL(file)
             reader.onloadend = function() {
                 blob = reader.result
-                console.log(blob)
-                uploadImage(blob)
+                fileName = file.name
+                // console.log(file.name)
+                // console.log(blob)
+                uploadImage(fileName, blob)
             }
         })
         .trigger('click')
         
-        var uploadImage = function(blobFile) {          
-          var canvas = document.getElementById('watermark-preview-canvas');
-          var img = new Image;
-          var ctx = canvas.getContext('2d');
-          img.onload = function () {
-            // canvas.width = img.width 
-            // canvas.height = img.height
-            // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            canvas.width = img.height 
-            canvas.height = img.height 
-
-            // Draw image to the canvas
-            ctx.drawImage(img, 0, 0) 
-          }
-          img.src = blobFile;
-          return;
-
+        var uploadImage = function(fileName, blobFile) {                    
           $.ajax({
-              url: `${INFERNA_SERVER_URL}/uploadImage`,
+              url: `${INFERNA_SERVER_URL}/api/v1/backend/uploadImage`,
               type: "POST",
-              data: blobFile,
+              data: {fileName: fileName, blob: blobFile},
               dataType: 'json',
               success: function(response) {
                   console.log(response);
+                  // var canvas = document.getElementById('watermark-preview-canvas');
+                  // var img = new Image;
+                  // var ctx = canvas.getContext('2d');
+                  // img.onload = function () {
+                  //   // canvas.width = img.width 
+                  //   // canvas.height = img.height
+                  //   // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                  //   canvas.width = img.height
+                  //   canvas.height = img.height 
+
+                  //   // Draw image to the canvas
+                  //   ctx.drawImage(img, 0, 0) 
+                  // }
+                  // img.src = blobFile;
+                  // return;
+
                   // let thumbnail_url = response.thumbnail;
                   // let reverse_list = response.reverselist 
 
@@ -131,7 +133,7 @@ window.onload = function(e) {
                   // })
               },
               error: function(jqXHR, textStatus, errorMessage) {
-                  // console.log(errorMessage);
+                  console.log(textStatus);
               }
           });
         }
