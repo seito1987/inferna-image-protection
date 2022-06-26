@@ -117,20 +117,23 @@ window.onload = function(e) {
                   // img.src = blobFile;
                   // return;
 
-                  // let thumbnail_url = response.thumbnail;
-                  // let reverse_list = response.reverselist 
+                  let thumbnail = response.thumbnail;
+                  let list = response.list 
 
-                  // // show the thumbnail //
-                  // $('#image-previewer')[0].src = thumbnail_url;
+                  // show the thumbnail //
+                  $('#image-previewer')[0].src = thumbnail;
 
-                  // // show the reverse list //
-                  // let count = reverse_list.length ? reverse_list.length : 0;
-                  // $('#search-image-count').text(count);
-                  // $('.search-list-box ul').children().remove();
-                  // reverse_list.map((each) => {
-                  //     const list = `<li><a href=${each.url}>${each.title}</a></li>`;
-                  //     $('.search-list-box ul').append(list);
-                  // })
+                  // show the reverse list //
+                  let count = list.length ? list.length - 1: 0;
+                  $('#search-image-count').text(count);
+                  $('.search-list-box ul').children().remove();
+                  list.map((each, index) => {
+                    // first element represents the title, so it is not neceessary to display.
+                    if( index > 0 ) {
+                      const list = `<li><a target="_blank" rel="noopener noreferrer" href=${each.url}>${each.title}</a></li>`;
+                      $('.search-list-box ul').append(list);
+                    }                      
+                  })
               },
               error: function(jqXHR, textStatus, errorMessage) {
                   console.log(textStatus);
