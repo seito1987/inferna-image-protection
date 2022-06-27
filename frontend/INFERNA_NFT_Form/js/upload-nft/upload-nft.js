@@ -100,7 +100,7 @@ window.onload = function(e) {
               data: {fileName: fileName, blob: blobFile},
               dataType: 'json',
               success: function(response) {
-                  console.log(response);
+                  // console.log(response);
                   
                   let thumbnail = response.thumbnail;
                   let list = response.list 
@@ -152,7 +152,7 @@ window.onload = function(e) {
             let img = new Image;
             let ctx = canvas.getContext('2d');
             let blob = response.payload.blob;
-            console.log(blob)
+            // console.log(blob)
 
             img.onload = function () {
               canvas.width = img.width
