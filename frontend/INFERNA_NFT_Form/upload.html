@@ -12,13 +12,15 @@
   <link rel="stylesheet" type="text/css" href="css/vendor/slidervalue.css">
   <link rel="stylesheet" type="text/css" href="css/vendor/icons.css">
   <link rel="stylesheet" href="css/upload-nft/upload-nft.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <title>INFERNA | Rewards</title>
 </head>
 <body>
   <div class="page-loader" style="background-color:#FF7F00;">
     <div class="page-loader-decoration">
       <img src="img/logo/white-logo.png" width="100" height="100"/>
-<svg>
+      <svg>
       </svg>
     </div>
     <div class="page-loader-info">
@@ -2089,16 +2091,19 @@
         <div class="grid-column margin-top ">
           <div class="widget-box">
             <div class="widget-box-content">
-              <div style="max-height: 256px; max-width: 256px; overflow: auto;">
-                  <canvas width="512px" height="512px" id="watermark-preview-canvas"></canvas>
+              <div style="max-height: 256px; max-width: 100%; overflow: auto;">
+                  <canvas style="width: 100%;" id="watermark-preview-canvas"></canvas>
               </div>            
             </div>
           </div>
         </div>
     </div>
+  </div>
     
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <script src="js/utils/app.js"></script>
 <script src="js/utils/page-loader.js"></script>
 <script src="js/vendor/simplebar.min.js"></script>

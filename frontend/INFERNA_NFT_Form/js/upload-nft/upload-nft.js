@@ -69,7 +69,7 @@ window.onload = function(e) {
      * upload the image
      * get the filestream on the local, opening the file-upload window
      * call the server
-     *      api: /upload/image, 
+     *      api: /api/v1/backend/uploadImage, 
      *      method: post
      *      param: filestream
      *      return: list of reverse image search
@@ -86,8 +86,6 @@ window.onload = function(e) {
             reader.onloadend = function() {
                 blob = reader.result
                 fileName = file.name
-                // console.log(file.name)
-                // console.log(blob)
                 uploadImage(fileName, blob)
             }
         })
@@ -101,26 +99,11 @@ window.onload = function(e) {
               dataType: 'json',
               success: function(response) {
                   console.log(response);
-                  // var canvas = document.getElementById('watermark-preview-canvas');
-                  // var img = new Image;
-                  // var ctx = canvas.getContext('2d');
-                  // img.onload = function () {
-                  //   // canvas.width = img.width 
-                  //   // canvas.height = img.height
-                  //   // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                  //   canvas.width = img.height
-                  //   canvas.height = img.height 
-
-                  //   // Draw image to the canvas
-                  //   ctx.drawImage(img, 0, 0) 
-                  // }
-                  // img.src = blobFile;
-                  // return;
-
+                  
                   let thumbnail = response.thumbnail;
                   let list = response.list 
 
-                  // show the thumbnail //
+                  // show the thumbnail //                  
                   $('#image-previewer')[0].src = thumbnail;
 
                   // show the reverse list //
@@ -140,6 +123,52 @@ window.onload = function(e) {
               }
           });
         }
+    })
+
+    /**
+     * fetch the watermarked image
+     * as click the thumbnaii, fetch the watermarked image, open the canvas view and project the mouse right button and 
+     * call the server
+     *      api: /api/v1/backend/fetchWatermark, 
+     *      method: post
+     *      param: thumbnail url
+     *      return: blob file stream
+     */
+    $('#image-previewer').click( (e) => {
+      e.preventDefault();
+      const src = $('#image-previewer').attr('src');
+      const watermark = '0x95e863cbc95057351d84302372056eEB07856c56';
+      
+      $.ajax({
+        url: `${INFERNA_SERVER_URL}/api/v1/backend/fetchWatermark`,
+        type: "POST",
+        data: {payload: {watermark: watermark, fileName: src}},
+        dataType: 'json',
+        success: function(response) {
+            console.log(response);
+            let canvas = document.getElementById('watermark-preview-canvas');
+            let img = new Image;
+            let ctx = canvas.getContext('2d');
+            let blob = response.payload.blob;
+            console.log(blob)
+
+            img.onload = function () {
+              // canvas.width = img.width 
+              // canvas.height = img.height
+              // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+              canvas.width = img.width
+              canvas.height = img.height 
+
+              // Draw image to the canvas
+              ctx.drawImage(img, 0, 0) 
+            }
+            // img.src = blob;
+        },
+        error: function(jqXHR, textStatus, errorMessage) {
+            console.log(textStatus);
+        }
+      });
+
     })
   
   }
