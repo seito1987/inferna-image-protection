@@ -74,6 +74,7 @@ window.onload = function(e) {
      *      param: filestream
      *      return: list of reverse image search
      */
+    let uploadBlob = null;
     $('#upload-image-button').click( (e) => {
         e.preventDefault()
 
@@ -85,6 +86,7 @@ window.onload = function(e) {
             reader.readAsDataURL(file)
             reader.onloadend = function() {
                 blob = reader.result
+                uploadBlob = blob
                 fileName = file.name
                 uploadImage(fileName, blob)
             }
@@ -153,16 +155,14 @@ window.onload = function(e) {
             console.log(blob)
 
             img.onload = function () {
-              // canvas.width = img.width 
-              // canvas.height = img.height
-              // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
               canvas.width = img.width
-              canvas.height = img.height 
+              canvas.height = img.height
 
               // Draw image to the canvas
-              ctx.drawImage(img, 0, 0) 
+              ctx.drawImage(img, 0, 0)
             }
-            // img.src = blob;
+            img.src = blob
+            canvas.oncontextmenu = function() {return false};
         },
         error: function(jqXHR, textStatus, errorMessage) {
             console.log(textStatus);
