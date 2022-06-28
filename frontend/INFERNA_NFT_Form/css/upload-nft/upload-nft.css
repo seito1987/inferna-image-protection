@@ -1,0 +1,161 @@
+.upload-nft-form .optioanl {
+    color: #c0c0c0;
+  }
+
+.upload-nft-form .widget-box-title.label-title {
+  margin-bottom: 15px;
+  float: left;
+}
+
+.upload-nft-form textarea {
+  height: auto !important;
+}
+
+.upload-nft-form .reference {
+color: #c0c0c0;
+padding-left: 10px;
+font-size: 10pt;
+overflow: auto;
+clear: both;
+margin-top: 5px;
+
+}
+.upload-nft-form .form-select {
+clear: both;
+}
+.upload-nft-form .icon-refresh {
+float: right;
+margin-right: 15px;
+color: green;
+}
+.upload-nft-form .sidebar-menu-header-icon.icon-return {
+fill: green;
+}
+
+.upload-nft-form .value {
+font-weight: bold;
+color: black;
+}
+
+.upload-nft-form .switch-option {
+top: -5px;
+}
+
+.upload-nft-form .form-split {
+display: flex;
+clear: both;
+justify-content: space-between;
+}
+
+.upload-nft-form .form-split input {
+width: 45%
+}
+
+.upload-nft-form .form-button {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.upload-nft-form .form-button .upload-nft-button {
+width: 150px;
+}
+
+.nft-image-preview {
+background-color: #fff;
+border: 1px solid #dedeea !important;
+color: #535353;
+border-radius: 12px;
+padding: 15px;	
+}
+
+.nft-image-preview .product-preview-title, 
+.nft-image-preview .product-preview-category {
+color: black;
+font-weight: bold;
+margin-bottom: 5px;
+}
+
+.nft-image-preview .coin-count {
+font-weight: lighter;
+}
+
+/* hash tag style */
+.tag-container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+.tag{
+pointer-events: none;
+background-color: #ff7f00;
+color: white;
+padding: 5px 10px;
+margin: 5px;
+border-radius: 7px;
+font-weight: bold;
+line-height: 18px;
+}
+
+.tag::before {
+pointer-events: all;
+display: inline-block;
+content: 'x';
+height: 20px;
+width: 20px;
+text-align: center;
+color: #ccc;
+background-color: #ff7f00;
+cursor: pointer;
+}
+/* //- hash tag style */
+ 
+
+/* upload the image */
+.upload-image-form .widget-box-title, 
+.preview-box .widget-box-title  {
+  margin-bottom: 15px;
+}
+
+.upload-image-form .upload-nft-button {
+  width: 90px;
+  height: 45px;
+}
+
+.preview-box {
+  margin-top: 12px;
+}
+/* //- upload the image */
+
+/* upload the result */
+.upload-result-box {
+
+}
+
+.upload-result-box .widget-box-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.list-container {
+  margin: 15px;
+}
+
+.upload-result-box .span.search-image-count {
+  font-weight: 400;
+}
+
+.upload-result-box .list-container .search-list-box {
+  height: 90px;
+  overflow: auto;
+}
+
+.upload-result-box .list-container .search-list-box ul {
+}
+
+.upload-result-box .list-container .search-list-box ul li {
+  margin: 3px 0px;
+  font-size: 10pt;
+}
+
+
+/* //- upload the result */
